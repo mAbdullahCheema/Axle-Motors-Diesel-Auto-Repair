@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useId, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 function r(n: number) {
@@ -42,6 +42,7 @@ function PulseDot({ x, y, delay, color }: { x: number; y: number; delay: number;
 }
 
 export function HeroVisual3D() {
+  const uid = useId().replaceAll(":", "");
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -85,31 +86,31 @@ export function HeroVisual3D() {
         {/* ============ TRUCK ILLUSTRATION ============ */}
         <svg viewBox="0 0 320 200" className="w-full max-w-[320px]" style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.5))" }}>
           <defs>
-            <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+            <linearGradient id={`${uid}-body`} x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#334155" />
               <stop offset="100%" stopColor="#1e293b" />
             </linearGradient>
-            <linearGradient id="cabGrad" x1="0" y1="0" x2="1" y2="0">
+            <linearGradient id={`${uid}-cab`} x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor="#475569" />
               <stop offset="100%" stopColor="#334155" />
             </linearGradient>
-            <linearGradient id="tireGrad" x1="0" y1="0" x2="0" y2="1">
+            <linearGradient id={`${uid}-tire`} x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#1e293b" />
               <stop offset="100%" stopColor="#0f172a" />
             </linearGradient>
-            <linearGradient id="rimGrad" x1="0" y1="0" x2="0" y2="1">
+            <linearGradient id={`${uid}-rim`} x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#94a3b8" />
               <stop offset="100%" stopColor="#64748b" />
             </linearGradient>
-            <linearGradient id="glassGrad" x1="0" y1="0" x2="1" y2="1">
+            <linearGradient id={`${uid}-glass`} x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stopColor="#1e3a5f" />
               <stop offset="100%" stopColor="#0f2744" />
             </linearGradient>
-            <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
+            <linearGradient id={`${uid}-accent`} x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor="#f97316" />
               <stop offset="100%" stopColor="#ea580c" />
             </linearGradient>
-            <filter id="glow">
+            <filter id={`${uid}-glow`}>
               <feGaussianBlur stdDeviation="2" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
@@ -119,22 +120,22 @@ export function HeroVisual3D() {
           </defs>
 
           {/* Truck body - cargo bed */}
-          <rect x="140" y="55" width="165" height="75" fill="url(#bodyGrad)" rx="3" />
+          <rect x="140" y="55" width="165" height="75" fill={`url(#${uid}-body)`} rx="3" />
           <rect x="140" y="55" width="165" height="3" fill="rgba(148,163,184,0.12)" />
 
           {/* Truck cab */}
-          <rect x="80" y="45" width="70" height="85" fill="url(#cabGrad)" rx="4" />
+          <rect x="80" y="45" width="70" height="85" fill={`url(#${uid}-cab)`} rx="4" />
           <rect x="80" y="45" width="70" height="3" fill="rgba(148,163,184,0.1)" rx="4" />
 
           {/* Windshield */}
-          <rect x="130" y="52" width="8" height="40" fill="url(#glassGrad)" rx="1" />
-          <rect x="90" y="52" width="8" height="50" fill="url(#glassGrad)" rx="1" />
+          <rect x="130" y="52" width="8" height="40" fill={`url(#${uid}-glass)`} rx="1" />
+          <rect x="90" y="52" width="8" height="50" fill={`url(#${uid}-glass)`} rx="1" />
 
           {/* Side window */}
-          <rect x="94" y="56" width="6" height="22" fill="url(#glassGrad)" rx="1" opacity="0.7" />
+          <rect x="94" y="56" width="6" height="22" fill={`url(#${uid}-glass)`} rx="1" opacity="0.7" />
 
           {/* Headlight */}
-          <rect x="80" y="65" width="6" height="12" fill="url(#accentGrad)" rx="2" filter="url(#glow)" />
+          <rect x="80" y="65" width="6" height="12" fill={`url(#${uid}-accent)`} rx="2" filter={`url(#${uid}-glow)`} />
           <rect x="80" y="62" width="4" height="6" fill="#fbbf24" rx="1" opacity="0.6" />
 
           {/* Grill */}
@@ -149,12 +150,12 @@ export function HeroVisual3D() {
           <rect x="140" y="127" width="165" height="3" fill="rgba(148,163,184,0.1)" />
 
           {/* Axle Motors accent stripe */}
-          <rect x="140" y="102" width="165" height="4" fill="url(#accentGrad)" opacity="0.7" />
+          <rect x="140" y="102" width="165" height="4" fill={`url(#${uid}-accent)`} opacity="0.7" />
 
           {/* Wheels */}
           <g transform="translate(105, 115)">
-            <circle cx="0" cy="0" r="18" fill="url(#tireGrad)" />
-            <circle cx="0" cy="0" r="11" fill="url(#rimGrad)" />
+            <circle cx="0" cy="0" r="18" fill={`url(#${uid}-tire)`} />
+            <circle cx="0" cy="0" r="11" fill={`url(#${uid}-rim)`} />
             <circle cx="0" cy="0" r="4" fill="#94a3b8" />
             {[0, 72, 144, 216, 288].map((angle) => (
               <line
@@ -170,8 +171,8 @@ export function HeroVisual3D() {
           </g>
 
           <g transform="translate(220, 115)">
-            <circle cx="0" cy="0" r="20" fill="url(#tireGrad)" />
-            <circle cx="0" cy="0" r="12" fill="url(#rimGrad)" />
+            <circle cx="0" cy="0" r="20" fill={`url(#${uid}-tire)`} />
+            <circle cx="0" cy="0" r="12" fill={`url(#${uid}-rim)`} />
             <circle cx="0" cy="0" r="4" fill="#94a3b8" />
             {[0, 60, 120, 180, 240, 300].map((angle) => (
               <line
@@ -187,8 +188,8 @@ export function HeroVisual3D() {
           </g>
 
           <g transform="translate(280, 115)">
-            <circle cx="0" cy="0" r="18" fill="url(#tireGrad)" />
-            <circle cx="0" cy="0" r="11" fill="url(#rimGrad)" />
+            <circle cx="0" cy="0" r="18" fill={`url(#${uid}-tire)`} />
+            <circle cx="0" cy="0" r="11" fill={`url(#${uid}-rim)`} />
             <circle cx="0" cy="0" r="4" fill="#94a3b8" />
             {[0, 72, 144, 216, 288].map((angle) => (
               <line
@@ -205,7 +206,7 @@ export function HeroVisual3D() {
 
           {/* Hood open indicator - mechanic work in progress */}
           <rect x="82" y="44" width="62" height="1.5" fill="#f97316" opacity="0.5" rx="0.5" />
-          
+
           {/* Exhaust pipe */}
           <rect x="300" y="122" width="14" height="3" fill="#64748b" rx="1" />
           <rect x="312" y="121" width="4" height="5" fill="#475569" rx="1" />
