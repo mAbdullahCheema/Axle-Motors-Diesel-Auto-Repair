@@ -77,7 +77,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] uppercase tracking-tight text-white text-shadow mb-6"
+              className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-8xl leading-[0.9] uppercase tracking-tight text-white text-shadow mb-6"
             >
               Diesel & Auto Repair{" "}
               <span className="text-gradient">That Keeps You Moving</span>
@@ -87,7 +87,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-lg md:text-xl text-metal-400 leading-relaxed mb-8 max-w-xl"
+              className="text-base sm:text-lg md:text-xl text-metal-400 leading-relaxed mb-8 max-w-xl"
             >
               24/7 mechanic, towing, diagnostics, truck repair, trailer repair,
               and full-service vehicle maintenance in Cheyenne, WY.
@@ -114,7 +114,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-            className="relative hidden lg:block p-4"
+            className="relative hidden md:block p-4"
           >
             {/* Main card with truck visual */}
             <div className="relative rounded-2xl border border-metal-700/30 bg-metal-900/40 overflow-hidden shadow-2xl shadow-brand-500/5">
@@ -139,7 +139,8 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Floating service cards — positioned outside with breathing room */}
+            {/* Floating service cards — positioned outside with breathing room (desktop only) */}
+            <div className="hidden lg:block">
             {floatingCards.map((card) => (
               <motion.div
                 key={card.label}
@@ -154,8 +155,9 @@ export function Hero() {
                 <span className="text-xs font-semibold text-white whitespace-nowrap">
                   {card.label}
                 </span>
-              </motion.div>
+                </motion.div>
             ))}
+            </div>
           </motion.div>
         </div>
       </motion.div>

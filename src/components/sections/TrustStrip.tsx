@@ -17,7 +17,7 @@ export function TrustStrip() {
     <section className="relative py-8 md:py-10 border-y border-metal-800/50 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-brand-500/5 via-transparent to-accent/5" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 md:gap-6">
           {trustItems.map((item, i) => (
             <motion.div
               key={item.label}

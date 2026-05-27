@@ -15,6 +15,12 @@ const bebasNeue = Bebas_Neue({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#020617",
+};
+
 export const metadata: Metadata = {
   title: "Axle Motors Diesel and Auto Repair | 24/7 Mechanic in Cheyenne, WY",
   description:

@@ -50,7 +50,7 @@ export function LegalModal({ open, onClose, title, children }: LegalModalProps) 
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6"
           onClick={handleOverlayClick}
         >
           <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
@@ -76,7 +76,7 @@ export function LegalModal({ open, onClose, title, children }: LegalModalProps) 
               </button>
             </div>
 
-            <div className="overflow-y-auto p-5 sm:p-6 text-sm text-metal-300 leading-relaxed space-y-4 max-h-[calc(85vh-73px)]">
+            <div className="overflow-y-auto p-4 sm:p-6 text-sm text-metal-300 leading-relaxed space-y-4 max-h-[calc(85vh-73px)]">
               {children}
             </div>
           </motion.div>

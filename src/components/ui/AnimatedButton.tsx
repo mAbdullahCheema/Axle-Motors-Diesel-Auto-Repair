@@ -41,8 +41,8 @@ export function AnimatedButton({
 
   const sizeClasses = {
     sm: "px-4 py-2 text-sm gap-1.5",
-    md: "px-6 py-3 text-base gap-2",
-    lg: "px-8 py-4 text-lg gap-2.5",
+    md: "px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base gap-1.5 sm:gap-2",
+    lg: "px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg gap-2 sm:gap-2.5",
   };
 
   const Comp = href ? "a" : "button";

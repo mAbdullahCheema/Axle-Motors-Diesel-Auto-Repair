@@ -65,7 +65,7 @@ export function ProblemSection() {
           <span className="inline-block text-xs md:text-sm font-mono uppercase tracking-[0.2em] mb-4 px-3 py-1 rounded-full border border-brand-500/30 bg-brand-500/5 text-brand-400">
             The Problem
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.9] uppercase tracking-tight text-white">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.9] uppercase tracking-tight text-white">
             Breakdowns Don&apos;t Wait.{" "}
             <span className="text-gradient">Neither Do We.</span>
           </h2>

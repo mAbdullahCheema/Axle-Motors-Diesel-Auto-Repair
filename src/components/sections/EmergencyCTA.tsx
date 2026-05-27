@@ -31,11 +31,11 @@ export function EmergencyCTA() {
               <AlertTriangle className="w-3.5 h-3.5" />
               Emergency Help
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.9] uppercase tracking-tight text-white mb-6">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.9] uppercase tracking-tight text-white mb-6">
               Need Help{" "}
               <span className="text-gradient">Right Now?</span>
             </h2>
-            <p className="text-metal-300 text-lg mb-8 max-w-lg leading-relaxed">
+            <p className="text-base sm:text-lg text-metal-300 mb-8 max-w-lg leading-relaxed">
               We&apos;re open 24 hours a day, 7 days a week. Whether it&apos;s a
               roadside emergency, diesel breakdown, or urgent repair — we&apos;re
               ready to help right now.
@@ -67,7 +67,7 @@ export function EmergencyCTA() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-2 gap-3"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-3"
           >
             {emergencyServices.map((service, i) => (
               <motion.div

@@ -3,6 +3,10 @@
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
+function r(n: number) {
+  return Math.round(n * 1e5) / 1e5;
+}
+
 function ScannerLine({ delay, y }: { delay: number; y: number }) {
   return (
     <motion.div
@@ -156,8 +160,8 @@ export function HeroVisual3D() {
               <line
                 key={angle}
                 x1="0" y1="-10"
-                x2={Math.sin((angle * Math.PI) / 180) * 4}
-                y2={-Math.cos((angle * Math.PI) / 180) * 4}
+                x2={r(Math.sin((angle * Math.PI) / 180) * 4)}
+                y2={r(-Math.cos((angle * Math.PI) / 180) * 4)}
                 stroke="rgba(148,163,184,0.4)"
                 strokeWidth="1"
                 transform={`rotate(${angle})`}
@@ -173,8 +177,8 @@ export function HeroVisual3D() {
               <line
                 key={angle}
                 x1="0" y1="-11"
-                x2={Math.sin((angle * Math.PI) / 180) * 4}
-                y2={-Math.cos((angle * Math.PI) / 180) * 4}
+                x2={r(Math.sin((angle * Math.PI) / 180) * 4)}
+                y2={r(-Math.cos((angle * Math.PI) / 180) * 4)}
                 stroke="rgba(148,163,184,0.4)"
                 strokeWidth="1.2"
                 transform={`rotate(${angle})`}
@@ -190,8 +194,8 @@ export function HeroVisual3D() {
               <line
                 key={angle}
                 x1="0" y1="-10"
-                x2={Math.sin((angle * Math.PI) / 180) * 4}
-                y2={-Math.cos((angle * Math.PI) / 180) * 4}
+                x2={r(Math.sin((angle * Math.PI) / 180) * 4)}
+                y2={r(-Math.cos((angle * Math.PI) / 180) * 4)}
                 stroke="rgba(148,163,184,0.4)"
                 strokeWidth="1"
                 transform={`rotate(${angle})`}

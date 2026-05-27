@@ -22,11 +22,11 @@ export function FinalCTA() {
           <span className="inline-block text-xs md:text-sm font-mono uppercase tracking-[0.2em] mb-4 px-3 py-1 rounded-full border border-brand-500/30 bg-brand-500/5 text-brand-400">
             Let&apos;s Get Started
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[0.9] uppercase tracking-tight text-white mb-6">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-7xl leading-[0.9] uppercase tracking-tight text-white mb-6">
             Ready to Get Your{" "}
             <span className="text-gradient">Vehicle Fixed?</span>
           </h2>
-          <p className="text-metal-400 text-lg md:text-xl mb-10 max-w-xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-metal-400 mb-10 max-w-xl mx-auto leading-relaxed">
             Honest work, fair pricing, and 24/7 availability. One call or
             message and we&apos;ll get you back on the road.
           </p>

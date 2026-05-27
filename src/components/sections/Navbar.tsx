@@ -74,11 +74,11 @@ export function Navbar() {
             <div className="w-10 h-10 rounded-xl">
               <LogoIcon className="w-full h-full" />
             </div>
-            <div className="hidden sm:block">
-              <p className="font-display text-xl text-white leading-none tracking-wide uppercase">
+            <div>
+              <p className="font-display text-base sm:text-xl text-white leading-none tracking-wide uppercase whitespace-nowrap">
                 Axle Motors
               </p>
-              <p className="text-[10px] text-brand-400 uppercase tracking-[0.2em] leading-none mt-0.5">
+              <p className="text-[8px] sm:text-[10px] text-brand-400 uppercase tracking-[0.2em] leading-none mt-0.5 whitespace-nowrap">
                 Diesel & Auto Repair
               </p>
             </div>
@@ -143,7 +143,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 bottom-0 w-72 glass border-l border-metal-800/50 p-6 pt-24"
+              className="absolute right-0 top-0 bottom-0 w-72 max-w-[85vw] glass border-l border-metal-800/50 p-4 sm:p-6 pt-20 sm:pt-24"
             >
               <div className="flex flex-col gap-2">
                 {navLinks.map((link, i) => (
