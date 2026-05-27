@@ -1,11 +1,18 @@
 "use client";
 
 import { AnimatedButton } from "@/components/ui/AnimatedButton";
-import { LogoIcon } from "@/components/ui/Logo";
+import { HeroVisual3D } from "@/components/ui/HeroVisual3D";
 import { phoneLink, getWhatsAppUrl } from "@/data";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { CheckCircle, Star, Phone, MessageCircle } from "lucide-react";
+import { CheckCircle, Star, Phone, MessageCircle, Wrench, Settings, Gauge, Shield } from "lucide-react";
 import { useRef } from "react";
+
+const floatingCards = [
+  { icon: Wrench, label: "Diesel Repair", pos: "top-[3%] -left-[2%]", delay: 0.8 },
+  { icon: Gauge, label: "Diagnostics", pos: "top-[8%] -right-[2%]", delay: 1.0 },
+  { icon: Shield, label: "24/7 Service", pos: "bottom-[14%] -left-[2%]", delay: 1.2 },
+  { icon: Settings, label: "Full Service", pos: "bottom-[16%] -right-[2%]", delay: 1.4 },
+];
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -27,13 +34,13 @@ export function Hero() {
         className="absolute inset-0 hero-grid-bg mechanical-lines"
         style={{ y: bgY }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-metal-950/80 via-metal-950/50 to-metal-950" />
+      <div className="absolute inset-0 bg-gradient-to-b from-metal-950/90 via-metal-950/60 to-metal-950" />
 
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-float-delayed" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-500/6 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/6 rounded-full blur-3xl animate-float-delayed" />
 
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/30 to-transparent animate-pulse" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent animate-pulse" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-500/40 to-transparent animate-pulse" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent animate-pulse" />
 
       <motion.div
         style={{ opacity }}
@@ -92,20 +99,11 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <AnimatedButton
-                href={getWhatsAppUrl()}
-                variant="primary"
-                size="lg"
-                glow
-              >
+              <AnimatedButton href={getWhatsAppUrl()} variant="primary" size="lg" glow>
                 <MessageCircle className="w-5 h-5" />
                 Book Appointment
               </AnimatedButton>
-              <AnimatedButton
-                href={phoneLink}
-                variant="outline"
-                size="lg"
-              >
+              <AnimatedButton href={phoneLink} variant="outline" size="lg">
                 <Phone className="w-5 h-5" />
                 Call Now
               </AnimatedButton>
@@ -113,50 +111,49 @@ export function Hero() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-            className="relative hidden lg:block"
+            className="relative hidden lg:block p-4"
           >
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden metal-border glow-brand">
-              <div className="absolute inset-0 bg-gradient-to-tl from-metal-950/80 via-transparent to-transparent z-10" />
-              <div className="absolute inset-0 bg-metal-900 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-24 h-24 mx-auto mb-4">
-                    <LogoIcon className="w-full h-full" />
+            {/* Main card with truck visual */}
+            <div className="relative rounded-2xl border border-metal-700/30 bg-metal-900/40 overflow-hidden shadow-2xl shadow-brand-500/5">
+              <HeroVisual3D />
+
+              {/* Status bar — inside the card, bottom */}
+              <div className="absolute bottom-0 left-0 right-0 z-10 px-4 py-3 bg-gradient-to-t from-metal-950/90 via-metal-950/60 to-transparent flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-500/10 border border-green-500/20">
+                    <div className="w-1.5 h-1.5 rounded-full bg-green-400 shadow-lg shadow-green-400/50" />
+                    <span className="text-[11px] font-semibold text-green-400 uppercase tracking-wider">
+                      Open 24/7
+                    </span>
                   </div>
-                  <p className="font-display text-4xl text-white uppercase">Axle Motors</p>
-                  <p className="text-brand-400 text-sm tracking-widest uppercase mt-2">
-                    Diesel & Auto Repair
-                  </p>
-                  <p className="text-metal-400 mt-4 text-sm">
-                    24/7 Honest, Reliable Service
-                  </p>
+                </div>
+                <div className="flex items-center gap-1">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Star key={s} className="w-3 h-3 fill-brand-400 text-brand-400" />
+                  ))}
+                  <span className="text-xs font-bold text-white ml-1">4.9</span>
                 </div>
               </div>
             </div>
 
-            {[
-              { label: "Diesel Repair", top: "-5%", left: "-10%", delay: 0.8 },
-              { label: "24/7 Towing", top: "10%", right: "-8%", delay: 1.0 },
-              { label: "Diagnostics", bottom: "15%", left: "-6%", delay: 1.2 },
-              { label: "Trailer Repair", bottom: "-3%", right: "-5%", delay: 1.4 },
-            ].map((card) => (
+            {/* Floating service cards — positioned outside with breathing room */}
+            {floatingCards.map((card) => (
               <motion.div
                 key={card.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: card.delay }}
-                className="absolute glass-light rounded-xl px-4 py-3 text-sm font-semibold text-white shadow-lg z-20"
-                style={{
-                  top: card.top,
-                  left: card.left,
-                  right: card.right,
-                  bottom: card.bottom,
-                }}
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.45, delay: card.delay, ease: "easeOut" }}
+                className={`absolute z-20 flex items-center gap-2 px-3 py-2.5 rounded-lg bg-metal-900/90 border border-metal-700/40 shadow-lg ${card.pos}`}
               >
-                <CheckCircle className="w-4 h-4 text-brand-400 inline mr-2" />
-                {card.label}
+                <div className="w-7 h-7 rounded-md bg-brand-500/15 flex items-center justify-center text-brand-400">
+                  <card.icon className="w-3.5 h-3.5" />
+                </div>
+                <span className="text-xs font-semibold text-white whitespace-nowrap">
+                  {card.label}
+                </span>
               </motion.div>
             ))}
           </motion.div>
